@@ -11,7 +11,7 @@ public class Student {
 	private int age;
 	private String studentID;
 	private List<String> courses;
-	
+
 	public Student(String name, int age, String studentID)
 	{
 		if(validateAge(age) && validateName(name) && validateStudentID(studentID))
@@ -19,30 +19,30 @@ public class Student {
 		this.name = name;
 		this.age = age;
 		this.studentID = studentID;
-		courses =	new ArrayList<String>();
+		courses =	new ArrayList<>();
 	}
 	}
-	
+
 	public String getName()
 	{
 		return name;
 	}
-	
+
 	public int getAge()
 	{
 		return age;
 	}
-	
+
 	public String getStudentID()
 	{
 		return studentID;
 	}
-	
+
 	public List<String> getCourses()
 	{
 		return courses;
 	}
-	
+
 	public void enrollCourse(String course)
 	{
 		if(validateCourseName(course))
@@ -50,7 +50,7 @@ public class Student {
 		if(!courses.contains(course) && validateCourseName(course))
 		{
 			courses.add(course);
-			
+
 			System.out.println("Student is enrolled to " + course + " successfully");
 		}
 		else
@@ -59,8 +59,8 @@ public class Student {
 		}
 		}
 	}
-	
-	
+
+
 	public void printStudentInfo()
 	{
 		System.out.println("------ Student Information ------");
@@ -69,12 +69,13 @@ public class Student {
 		System.out.println("Student ID : " + studentID);
 		System.out.println("Enrolled for courses : " + courses);
 	}
-	
+
+	@Override
 	public String toString()
 	{
 		return String.format("Student[name = %s , age = %d, studentID = %s , courses = %s]",name , age , studentID , courses);
 	}
-	
+
 	//Validation Check
 	public static Boolean validateAge(int age)
 	{
@@ -88,7 +89,7 @@ public class Student {
 			return false;
 		}
 	}
-	
+
 	public static	Boolean validateName(String name)
 	{
 		String nameRegex = "^[a-zA-Z\\s]+$";
@@ -104,7 +105,7 @@ public class Student {
 			return false;
 		}
 	}
-	
+
 	public static	Boolean validateStudentID(String studentID)
 	{
 		String studentIDRegex = "S-\\d+$";
@@ -120,7 +121,7 @@ public class Student {
 			return false;
 		}
 	}
-	
+
 	public Boolean validateCourseName(String course)
 	{
 		if(course.equalsIgnoreCase("Java") || course.equalsIgnoreCase("Devops") || course.equalsIgnoreCase("Playwright"))
@@ -133,5 +134,5 @@ public class Student {
 			return false;
 		}
 	}
-	
+
 }
